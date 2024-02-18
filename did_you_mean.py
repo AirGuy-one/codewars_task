@@ -1,9 +1,12 @@
+from typing import List, Optional
+
+
 class Dictionary:
-    def __init__(self, words):
+    def __init__(self, words: List[str]):
         self.words = words
 
-    def find_most_similar(self, term):
-        def edit_distance(word1, word2):
+    def find_most_similar(self, term: str) -> Optional[str]:
+        def edit_distance(word1: str, word2: str) -> int:
             m, n = len(word1), len(word2)
             dp = [[0] * (n + 1) for _ in range(m + 1)]
             for i in range(m + 1):
